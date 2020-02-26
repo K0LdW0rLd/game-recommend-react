@@ -1,7 +1,5 @@
 import React, { Component } from 'react';
 import axios from 'axios';
-require ('dotenv').config();
-console.log(process.env);
 
 
 class GameList extends Component {
@@ -13,14 +11,13 @@ class GameList extends Component {
         };
     }
     componentDidMount() {
-        console.log('I am doing something')
-        const api_key = process.env.API_KEY
-        console.log(api_key)
-        axios.get(`/api/game/3030-4725/?api_key=${api_key}`)
+        const url = `http://localhost:8080/ps3`
+        // crossDomain
+        axios.get(url)
             .then(res => {
                 this.setState({ 
                     isLoaded: true,
-                    gameData: res.data });
+                    gameData: res.data});
                 console.log(this.state.gameData)
             })
             .catch((error) => {
@@ -28,9 +25,17 @@ class GameList extends Component {
             })
     }
     render () {
+        let gameResults=this.state.gameData
+        const gameList= gameResults.map((game, index) => {
+            return (<div key={index}>
+                <a href={game.site_detail_url} target="_blank">{game.name}</a>
+            </div>)
+        })
+
         return(
             <div>
-                <div>Something</div>
+                <div>PlaceHolder</div>
+                <div>{gameList}</div>
             </div>
         );
     }

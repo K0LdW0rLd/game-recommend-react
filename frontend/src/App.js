@@ -19,13 +19,13 @@ class App extends Component {
             <Navbar.Toggle aria-controls="responsive-navbar-nav" />
             <Navbar.Collapse id="responsive-navbar-nav">
               <Nav className="mr-auto">
-                <Nav.Link href="/game">Games</Nav.Link>
-                <Nav.Link href="#">Search</Nav.Link>
-                <Nav.Link href='/gamelist'>GameList</Nav.Link>
+                <Link to="/game">Games</Link>
+                <Link to="#">Search</Link>
+                <Link to='/gamelist'>GameList</Link>
               </Nav>
               <Nav>
-                <Nav.Link href="#">Help</Nav.Link>
-                <Nav.Link href="#">Sign Out</Nav.Link>
+                <Link to="#">Help</Link>
+                <Link to="#">Sign Out</Link>
               </Nav>
             </Navbar.Collapse>
           </Navbar>
