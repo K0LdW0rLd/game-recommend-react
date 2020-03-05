@@ -28,7 +28,7 @@ class GameList extends Component {
         let gameResults=this.state.gameData
         const gameList= gameResults.map((game, index) => {
             return (<div key={index}>
-                <a href={game.site_detail_url} target="_blank">{game.name}</a>
+                <a href={game.site_detail_url} target="_blank"><img src={game.image[0].small_url} alt='Small game image' height='50px' width='50px'/><p>{game.name}</p></a>
             </div>)
         })
 
